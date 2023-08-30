@@ -1,0 +1,120 @@
+//Mock数据模拟
+import Mock from 'mockjs'
+
+
+
+
+//图表数据
+let List = []
+export default {
+    getStatisticalData:() => {
+        Mock.Random.float //产生随机数100到8000之间 保留小数 最小0位，最大0位
+        for(let i = 0; i<7; i++){
+            List.push(
+                Mock.mock({
+                    苹果:Mock.Random.float(100,8000,0,0),
+                    三星:Mock.Random.float(100,8000,0,0),
+                    vivo:Mock.Random.float(100,8000,0,0),
+                    oppo:Mock.Random.float(100,8000,0,0),
+                    小米:Mock.Random.float(100,8000,0,0),
+                    魅族:Mock.Random.float(100,8000,0,0)
+                })
+            )
+        }
+        return {
+            code:200,
+            data:{
+                //饼图
+                videoData:[
+                    {
+                        name:'小米',
+                        value:4999
+                    },{
+                        name:'三星',
+                        value:5999
+                    },{
+                        name:'vivo',
+                        value:4999
+                    },{
+                        name:'oppo',
+                        value:3999
+                    },{
+                        name:'魅族',
+                        value:1999
+                    },{
+                        name:'苹果',
+                        value:7999
+                    }
+                ],
+                //柱状图
+                userData:[
+                    {
+                        data:'周一',
+                        new:'5',
+                        active:'200'
+                    },{
+                        data:'周二',
+                        new:'12',
+                        active:'500'
+                    },{
+                        data:'周三',
+                        new:'16',
+                        active:'400'
+                    },{
+                        data:'周四',
+                        new:'25',
+                        active:'300'
+                    },{
+                        data:'周五',
+                        new:'35',
+                        active:'200'
+                    },{
+                        data:'周六',
+                        new:'15',
+                        active:'500'
+                    },{
+                        data:'周天',
+                        new:'29',
+                        active:'100'
+                    }
+                ],
+                //折线图
+                oderData:{
+                    date:['20230701','20230702','20230703','20230704','20230705','20230706','20230707'],
+                    data:List
+                },
+                tableData:[{
+                    name:'oppo',
+                    todaybuy:500,
+                    monthbuy:2300,
+                    totalbuy:24000
+                },{
+                    name:'小米',
+                    todaybuy:500,
+                    monthbuy:2300,
+                    totalbuy:24000
+                },{
+                    name:'vivo',
+                    todaybuy:500,
+                    monthbuy:3500,
+                    totalbuy:24000
+                },{
+                    name:'三星',
+                    todaybuy:500,
+                    monthbuy:345,
+                    totalbuy:24000
+                },{
+                    name:'oppo',
+                    todaybuy:500,
+                    monthbuy:24,
+                    totalbuy:24000
+                },{
+                    name:'苹果',
+                    todaybuy:500,
+                    monthbuy:634,
+                    totalbuy:24000
+                }]
+            }
+        }
+    }
+}
